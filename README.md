@@ -1,56 +1,49 @@
-# barpatch
-MATLAB tool to create bar graph with error bars using patch and line objects
+# newfunc
+MATLAB tool to customize and create a formatted file for a new MATLAB function
 
-This function will create a grouped bar graph with error bars without
-using the standard plotting functions BAR and ERRORBAR. It uses PATCH to
-create the bars and LINE to construct the error bars.
+### USAGE: newfunc(name, varargin)
+          
+Run `newfunc` with no args prints help and shows default VARARGINs
 
- USAGE: h = barpatch(data, varargin)
+---
 
-__________________________________________________________________________
- OUTPUT
-    h: handles to graphic objects  
+## NECESSARY ARGUMENT
+- **name**
+  + function name e.g. ['myfunc.m','myfunc',{'myfunc'}] if path is omitted, arg "outdir" is used (see below)
 
-__________________________________________________________________________
- INPUTS
-    data:       data matrix to plot; rows are cases, cols are variables  
-    varargin:   each are "name, value" pairs
-      figh        = parent figure for plot
-      groupidx    = rows index columns of "data" to plot as a group
-      groupname   = labels for different groups of bars
-      barname     = labels for different bars within groups (in legend)
-      grouptick   = flag to place tickmark between groups on x-axis
-      t           = figure title
-      xl          = x-axis label
-      yl          = y-axis label
-      fontsize    = base font size
-      fontname    = name of font to use
+---
 
-__________________________________________________________________________
- USAGE EXAMPLE
-    data        = randn(10, 8); 
-    groupidx    = [1 2; 3 4; 5 6; 7 8]; 
-    groupname   = {'Group A' 'Group B' 'Group C' 'Group D'};
-    barname     = {'Level 1' 'Level 2'}; 
-    xl          = 'X-Axis Label'; 
-    yl          = 'Y-Axis Label';
-    t           = 'The Figure Title';
-  figh        = figure('color', 'white'); 
-    h = barpatch(data, 'figh', figh, 'groupidx', groupidx, 'groupname', groupname, 'barname', barname, 'xl', xl, 'yl', yl, 't', t); 
+## VARARGIN (entered as name, value pairs)
 
+|      NAME     |                   DESCRIPTION                   |
+|---------------|-------------------------------------------------|
+| descrip       | brief description to include at top of doc      |
+| numargin      | number of necessary arguments                   |
+| numvarargin   | number of optional arguments (name-value pairs) |
+| numargout     | number of outputs                               |
+| usage_example | flag to incl USAGE EXAMPLE section in doc       |
+| credits       | flag to incl CREDITS section in doc             |
+| authorname    | author name for Copyright seciton of doc        |
+| authoremail   | author email for Copyright seciton of doc       |
+| outdir        | path to save the new function file              |
+| linewidth     | width (in chars) for doc and section dividers   |
+| editafter     | flag to open created file in default editor     |
 
----------------------- Copyright (C) 2014 Bob Spunt ----------------------
-    Created:  2015-03-09
-    Email:    spunt@caltech.edu
+- run `newfunc` w/no arguments to see default values
 
-  This program is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or (at
-  your option) any later version.
-      This program is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  General Public License for more details.
-      You should have received a copy of the GNU General Public License
-  along with this program.  If not, see: http://www.gnu.org/licenses/.
-__________________________________________________________________________
+---
+
+## EXAMPLES
+
+    newfunc
+
+    newfunc('mynewfunc');
+
+    newfunc('mynewfunc', ...
+            'descrip',          'This is my new function', ...
+            'numargin',         2, ...
+            'numvarargin',      6, ...
+            'numargout',        1, ...
+            'usage_example',    true, ...
+            'credits',          true  ...
+            );         

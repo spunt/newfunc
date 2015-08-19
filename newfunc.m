@@ -3,12 +3,12 @@
 %
 %  USAGE:   newfunc(name, varargin)
 %           *newfunc with no args prints help and shows default VARARGINs
-%
+% 
 % _________________________________________________________________________
 %  NECESSARY ARGUMENT
 %     name          = function name e.g. ['myfunc.m','myfunc',{'myfunc'}]
 %                     if path is omitted, arg "outdir" is used (see below)
-%
+% 
 % _________________________________________________________________________
 %  VARARGIN (run newfunc w/no arguments to see default values)
 %     descrip       = brief description to include at top of doc
@@ -22,7 +22,7 @@
 %     outdir        = path to save the new function file
 %     linewidth     = width (in chars) for doc and section dividers
 %     editafter     = flag to open created file in default editor
-%
+% 
 % _________________________________________________________________________
 %  EXAMPLES
 %     newfunc
@@ -35,7 +35,7 @@
 %             'usage_example',    true, ...
 %             'credits',          true  ...
 %             );         
-%
+% 
 
 % ---------------------- Copyright (C) 2014 Bob Spunt ----------------------
 %	Created:  2014-09-27
